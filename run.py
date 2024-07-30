@@ -148,6 +148,17 @@ __   __                     _       _
     """
     print(message)
 
+def print_game_over():
+    """Display 'Game over!' in ASCII art to inform the player of the game outcome."""
+    message = """
+  ____                                            _ 
+ / ___| __ _ _ __ ___   ___    _____   _____ _ __| |
+| |  _ / _` | '_ ` _ \ / _ \  / _ \ \ / / _ \ '__| |
+| |_| | (_| | | | | | |  __/ | (_) \ V /  __/ |  |_|
+ \____|\__,_|_| |_| |_|\___|  \___/ \_/ \___|_|  (_)
+    """
+    print(message)
+
 # List of topics to choose
 TOPICS = {
     "chemistry": [
@@ -221,6 +232,7 @@ def main():
             break
         # Check if the player has exceeded the maximum number of incorrect guesses
         elif check_loss(incorrect_guesses, max_incorrect):
+            print_game_over()
             print(f"\nSorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
             break
         
