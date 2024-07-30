@@ -112,6 +112,23 @@ def display_current_state(word, guessed_letters):
     display = [letter if letter in guessed_letters else '_' for letter in word]
     print("Current word: " + " ".join(display))
 
+def handle_guess(word, guessed_letters, incorrect_guesses):
+    """Handle the player's guess, update guessed letters and incorrect guesses, and return them."""
+    while True:
+        guess = input("Guess a letter: ").lower()
+        if len(guess) != 1 or not guess.isalpha():
+            print("Invalid input. Please enter a single letter.")
+        elif guess in guessed_letters or guess in incorrect_guesses:
+            print("You've already guessed that letter.")
+        else:
+            break
+    if guess in word:
+        guessed_letters.append(guess)
+    else:
+        incorrect_guesses.append(guess)
+        print_hangman(len(incorrect_guesses))
+    return guessed_letters, incorrect_guesses
+
 # List of topics to choose
 TOPICS = {
     "chemistry": [
@@ -160,6 +177,19 @@ def main():
     guessed_letters = []
     print_hangman(0)
     display_current_state(word_to_guess, guessed_letters)
+    
+    # Set maximum quantity on incorrect answers
+    max_incorrect = 6
+    incorrect_guesses = []
+
+    # Enter an infinite loop for handling guesses until the game is won or lost
+    while True:
+        # Update guessed and incorrect letters based on the player's input
+        guessed_letters, incorrect_guesses = handle_guess(
+            word_to_guess, guessed_letters, incorrect_guesses
+        )
+        # Display the current state of the word with guessed letters and underscores
+        display_current_state(word_to_guess, guessed_letters)
 
 if __name__ == "__main__":
     main()
