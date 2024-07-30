@@ -91,20 +91,20 @@ def print_hangman(incorrect_guesses):
     elif(incorrect_guesses == 4):
         print("\n+---+")
         print(" O  |")
-        print("/|\ |")
+        print("/|\\ |")
         print("    |")
         print("   ===")
     elif(incorrect_guesses == 5):
         print("\n+---+")
         print(" O  |")
-        print("/|\ |")
+        print("/|\\ |")
         print("/   |")
         print("   ===")
     elif(incorrect_guesses == 6):
         print("\n+---+")
         print(" O  |")
-        print("/|\ |")
-        print("/ \ |")
+        print("/|\\ |")
+        print("/ \\ |")
         print("   ===")
 
 # List of topics to choose
@@ -142,9 +142,19 @@ TOPICS = {
     ]
 }
 
-print_logo()
-player_name = get_player_name()
-print_greeting(player_name)
-print_rules()
-selected_topic, word_to_guess = choose_topic(TOPICS)
-print(f"\nPerfect! You've chosen the topic: {selected_topic}. Let`s start!")
+def main():
+    """Main function to run the Hangman game."""
+    print_logo()
+    player_name = get_player_name()
+    print_greeting(player_name)
+    print_rules()
+    selected_topic, word_to_guess = choose_topic(TOPICS)
+    print(f"\nPerfect! You've chosen the topic: {selected_topic}. Let`s start!")
+
+    # Display initial state of the word to guess and the hangman
+    guessed_letters = []
+    print_hangman(0)
+    display_current_state(word_to_guess, guessed_letters)
+
+if __name__ == "__main__":
+    main()
