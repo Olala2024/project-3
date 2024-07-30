@@ -129,6 +129,14 @@ def handle_guess(word, guessed_letters, incorrect_guesses):
         print_hangman(len(incorrect_guesses))
     return guessed_letters, incorrect_guesses
 
+def check_win(word, guessed_letters):
+    """Check if the player has won by guessing all letters in the word."""
+    return all(letter in guessed_letters for letter in word)
+
+def check_loss(incorrect_guesses, max_incorrect):
+    """Check if the player has lost by exceeding the maximum number of incorrect guesses."""
+    return len(incorrect_guesses) >= max_incorrect
+
 # List of topics to choose
 TOPICS = {
     "chemistry": [
@@ -190,6 +198,15 @@ def main():
         )
         # Display the current state of the word with guessed letters and underscores
         display_current_state(word_to_guess, guessed_letters)
+
+        # Check if the player has guessed all the letters in the word
+        if check_win(word_to_guess, guessed_letters):
+            print(f"Congratulations, {player_name}! You've guessed the word: {word_to_guess}")
+            break
+        # Check if the player has exceeded the maximum number of incorrect guesses
+        elif check_loss(incorrect_guesses, max_incorrect):
+            print(f"Sorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
+            break
 
 if __name__ == "__main__":
     main()
