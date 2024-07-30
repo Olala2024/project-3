@@ -107,6 +107,11 @@ def print_hangman(incorrect_guesses):
         print("/ \\ |")
         print("   ===")
 
+def display_current_state(word, guessed_letters):
+    """Display the current state of the word with guessed letters and underscores for unguessed letters."""
+    display = [letter if letter in guessed_letters else '_' for letter in word]
+    print("Current word: " + " ".join(display))
+
 # List of topics to choose
 TOPICS = {
     "chemistry": [
