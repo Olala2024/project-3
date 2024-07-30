@@ -196,47 +196,48 @@ TOPICS = {
 
 def main():
     """Main function to run the Hangman game."""
-    print_logo()
-    player_name = get_player_name()
-    print_greeting(player_name)
-    print_rules()
-    selected_topic, word_to_guess = choose_topic(TOPICS)
-    print(f"\nPerfect! You've chosen the topic: {selected_topic}. Let`s start!")
-
-    # Display initial state of the word to guess and the hangman
-    guessed_letters = []
-    print_hangman(0)
-    display_current_state(word_to_guess, guessed_letters)
-    
-    # Set maximum quantity on incorrect answers
-    max_incorrect = 6
-    incorrect_guesses = []
-
-    # Enter an infinite loop for handling guesses until the game is won or lost
     while True:
-        # Update guessed and incorrect letters based on the player's input
-        guessed_letters, incorrect_guesses = handle_guess(
-            word_to_guess, guessed_letters, incorrect_guesses
-        )
-        # Display the current state of the word with guessed letters and underscores
+        print_logo()
+        player_name = get_player_name()
+        print_greeting(player_name)
+        print_rules()
+        selected_topic, word_to_guess = choose_topic(TOPICS)
+        print(f"\nPerfect! You've chosen the topic: {selected_topic}. Let`s start!")
+
+        # Display initial state of the word to guess and the hangman
+        guessed_letters = []
+        print_hangman(0)
         display_current_state(word_to_guess, guessed_letters)
-
-        # Display the incorrect guesses
-        if incorrect_guesses:
-            print(f"\nIncorrect guesses: {', '.join(incorrect_guesses)}")
-
-        # Check if the player has guessed all the letters in the word
-        if check_win(word_to_guess, guessed_letters):
-            print_you_win()
-            print(f"Congratulations, {player_name}! You've guessed the word: {word_to_guess}")
-            break
-        # Check if the player has exceeded the maximum number of incorrect guesses
-        elif check_loss(incorrect_guesses, max_incorrect):
-            print_game_over()
-            print(f"\nSorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
-            break
         
-        print(f"Remaining attempts: {max_incorrect - len(incorrect_guesses)}")
+        # Set maximum quantity on incorrect answers
+        max_incorrect = 6
+        incorrect_guesses = []
+
+        # Enter an infinite loop for handling guesses until the game is won or lost
+        while True:
+            # Update guessed and incorrect letters based on the player's input
+            guessed_letters, incorrect_guesses = handle_guess(
+                word_to_guess, guessed_letters, incorrect_guesses
+            )
+            # Display the current state of the word with guessed letters and underscores
+            display_current_state(word_to_guess, guessed_letters)
+
+            # Display the incorrect guesses
+            if incorrect_guesses:
+                print(f"\nIncorrect guesses: {', '.join(incorrect_guesses)}")
+
+            # Check if the player has guessed all the letters in the word
+            if check_win(word_to_guess, guessed_letters):
+                print_you_win()
+                print(f"Congratulations, {player_name}! You've guessed the word: {word_to_guess}")
+                break
+            # Check if the player has exceeded the maximum number of incorrect guesses
+            elif check_loss(incorrect_guesses, max_incorrect):
+                print_game_over()
+                print(f"\nSorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
+                break
+            
+            print(f"Remaining attempts: {max_incorrect - len(incorrect_guesses)}")
 
      # Ask the player if they want to play again or exit
         while True:
