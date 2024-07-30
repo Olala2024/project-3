@@ -63,6 +63,7 @@ def choose_topic(topics):
             print("\nInvalid choice. Please enter the number or name of a valid topic.")
 
 def print_hangman(incorrect_guesses):
+    """Print the current stage of the hangman based on the number of incorrect guesses."""
     if(incorrect_guesses == 0):
         print("\n+---+")
         print("    |")
@@ -106,7 +107,7 @@ def print_hangman(incorrect_guesses):
         print("/ \ |")
         print("   ===")
 
-
+# List of topics to choose
 TOPICS = {
     "chemistry": [
         "atom", "molecule", "reaction", "acid", "base",
