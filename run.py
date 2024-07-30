@@ -199,6 +199,10 @@ def main():
         # Display the current state of the word with guessed letters and underscores
         display_current_state(word_to_guess, guessed_letters)
 
+        # Display the incorrect guesses
+        if incorrect_guesses:
+            print(f"Incorrect guesses: {', '.join(incorrect_guesses)}")
+
         # Check if the player has guessed all the letters in the word
         if check_win(word_to_guess, guessed_letters):
             print(f"Congratulations, {player_name}! You've guessed the word: {word_to_guess}")
@@ -207,8 +211,8 @@ def main():
         elif check_loss(incorrect_guesses, max_incorrect):
             print(f"Sorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
             break
-        print(f"Incorrect guesses: {', '.join(incorrect_guesses)}")
-        print(f"Remaining attempts: {max_incorrect - len(incorrect_guesses)}")
         
+        print(f"Remaining attempts: {max_incorrect - len(incorrect_guesses)}")
+
 if __name__ == "__main__":
     main()
