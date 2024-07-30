@@ -201,7 +201,7 @@ def main():
 
         # Display the incorrect guesses
         if incorrect_guesses:
-            print(f"Incorrect guesses: {', '.join(incorrect_guesses)}")
+            print(f"\nIncorrect guesses: {', '.join(incorrect_guesses)}")
 
         # Check if the player has guessed all the letters in the word
         if check_win(word_to_guess, guessed_letters):
@@ -209,10 +209,22 @@ def main():
             break
         # Check if the player has exceeded the maximum number of incorrect guesses
         elif check_loss(incorrect_guesses, max_incorrect):
-            print(f"Sorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
+            print(f"\nSorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
             break
         
         print(f"Remaining attempts: {max_incorrect - len(incorrect_guesses)}")
+
+     # Ask the player if they want to play again or exit
+        while True:
+            play_again = input("Do you want to play again? (yes/no): ").strip().lower()
+            if play_again in ('yes', 'no'):
+                break
+            else:
+                print("Invalid input. Please enter 'yes' or 'no'.")
+        
+        if play_again == 'no':
+            print("Thank you for playing Hangman! Goodbye!")
+            break
 
 if __name__ == "__main__":
     main()
