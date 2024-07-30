@@ -1,5 +1,18 @@
 import random
 
+def print_logo():
+    logo = """
+ _    _                                             
+| |  | |                                            
+| |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __      
+|  __  |/ _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\     
+| |  | | (_| | | | | (_| | | | | | | (_| | | | |    
+|_|  |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|    
+                     __/ |                          
+                    |___/                           
+    """
+    print(logo)
+
 def get_player_name():
     """Prompt the user for their name and validate the input."""
     while True:
@@ -27,6 +40,7 @@ def print_rules():
     print("5. If you exceed 6 incorrect guesses, you lose.")
     print("6. Letters are case-insensitive (e.g., 'A' is the same as 'a').\n")
 
+print_logo()
 player_name = get_player_name()
 print_greeting(player_name)
 print_rules()
