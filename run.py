@@ -62,6 +62,51 @@ def choose_topic(topics):
         else:
             print("\nInvalid choice. Please enter the number or name of a valid topic.")
 
+def print_hangman(incorrect_guesses):
+    if(incorrect_guesses == 0):
+        print("\n+---+")
+        print("    |")
+        print("    |")
+        print("    |")
+        print("   ===")
+    elif(incorrect_guesses == 1):
+        print("\n+---+")
+        print(" O  |")
+        print("    |")
+        print("    |")
+        print("   ===")
+    elif(incorrect_guesses == 2):
+        print("\n+---+")
+        print(" O  |")
+        print(" |  |")
+        print("    |")
+        print("   ===")
+    elif(incorrect_guesses == 3):
+        print("\n+---+")
+        print(" O  |")
+        print("/|  |")
+        print("    |")
+        print("   ===")
+    elif(incorrect_guesses == 4):
+        print("\n+---+")
+        print(" O  |")
+        print("/|\ |")
+        print("    |")
+        print("   ===")
+    elif(incorrect_guesses == 5):
+        print("\n+---+")
+        print(" O  |")
+        print("/|\ |")
+        print("/   |")
+        print("   ===")
+    elif(incorrect_guesses == 6):
+        print("\n+---+")
+        print(" O  |")
+        print("/|\ |")
+        print("/ \ |")
+        print("   ===")
+
+
 TOPICS = {
     "chemistry": [
         "atom", "molecule", "reaction", "acid", "base",
@@ -100,6 +145,5 @@ print_logo()
 player_name = get_player_name()
 print_greeting(player_name)
 print_rules()
-
 selected_topic, word_to_guess = choose_topic(TOPICS)
 print(f"\nPerfect! You've chosen the topic: {selected_topic}. Let`s start!")
