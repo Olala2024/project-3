@@ -207,6 +207,8 @@ def main():
         elif check_loss(incorrect_guesses, max_incorrect):
             print(f"Sorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
             break
-
+        print(f"Incorrect guesses: {', '.join(incorrect_guesses)}")
+        print(f"Remaining attempts: {max_incorrect - len(incorrect_guesses)}")
+        
 if __name__ == "__main__":
     main()
