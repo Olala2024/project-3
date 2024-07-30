@@ -40,7 +40,66 @@ def print_rules():
     print("5. If you exceed 6 incorrect guesses, you lose.")
     print("6. Letters are case-insensitive (e.g., 'A' is the same as 'a').\n")
 
+def choose_topic(topics):
+    """Prompt the user to choose a topic and select a random word from that topic."""
+    while True:
+        print("\nChoose a topic:")
+        for i, topic in enumerate(topics.keys(), 1):
+            print(f"{i}. {topic.capitalize()}")
+
+        user_input = input("\nEnter the number or name of your choice: ").strip().lower()
+
+        if user_input.isdigit():
+            choice = int(user_input) - 1
+            if 0 <= choice < len(topics):
+                selected_topic = list(topics.keys())[choice]
+                return selected_topic, random.choice(topics[selected_topic])
+            else:
+                print("\nInvalid choice. Please enter a number corresponding to a topic.")
+        elif user_input in topics:
+            selected_topic = user_input
+            return selected_topic, random.choice(topics[selected_topic])
+        else:
+            print("\nInvalid choice. Please enter the number or name of a valid topic.")
+
+TOPICS = {
+    "chemistry": [
+        "atom", "molecule", "reaction", "acid", "base",
+        "catalyst", "electrolyte", "isotope", "polymer", "ion",
+        "compound", "element", "solvent", "solute", "precipitate",
+        "oxidation", "reduction", "bond", "enzyme", "protein"
+    ],
+    "geography": [
+        "continent", "island", "river", "mountain", "desert",
+        "valley", "plateau", "ocean", "volcano", "glacier",
+        "delta", "plain", "forest", "savanna", "tundra",
+        "climate", "latitude", "longitude", "equator", "meridian"
+    ],
+    "astronomy": [
+        "planet", "star", "galaxy", "nebula", "comet",
+        "asteroid", "meteor", "satellite", "orbit", "telescope",
+        "quasar", "pulsar", "supernova", "eclipse", "blackhole",
+        "constellation", "universe", "cosmos", "moon", "solarsystem"
+    ],
+    "physics": [
+        "force", "energy", "mass", "velocity", "acceleration",
+        "momentum", "gravity", "friction", "wave", "particle",
+        "quantum", "relativity", "thermodynamics", "magnetism",
+        "electricity", "circuit", "radiation", "nucleus", "photon",
+        "electron"
+    ],
+    "mathematics": [
+        "algebra", "geometry", "calculus", "equation", "function",
+        "matrix", "vector", "probability", "statistics", "theorem",
+        "integral", "derivative", "logarithm", "sequence", "series",
+        "angle", "triangle", "polygon", "fraction", "decimal"
+    ]
+}
+
 print_logo()
 player_name = get_player_name()
 print_greeting(player_name)
 print_rules()
+
+selected_topic, word_to_guess = choose_topic(TOPICS)
+print(f"\nPerfect! You've chosen the topic: {selected_topic}. Let`s start!")
