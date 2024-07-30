@@ -137,6 +137,17 @@ def check_loss(incorrect_guesses, max_incorrect):
     """Check if the player has lost by exceeding the maximum number of incorrect guesses."""
     return len(incorrect_guesses) >= max_incorrect
 
+def print_you_win():
+    """Display 'You Win!' in ASCII art to congratulate the player."""
+    message = """
+__   __                     _       _ 
+\ \ / /__  _   _  __      _(_)_ __ | |
+ \ V / _ \| | | | \ \ /\ / / | '_ \| |
+  | | (_) | |_| |  \ V  V /| | | | |_|
+  |_|\___/ \__,_|   \_/\_/ |_|_| |_(_)
+    """
+    print(message)
+
 # List of topics to choose
 TOPICS = {
     "chemistry": [
@@ -205,6 +216,7 @@ def main():
 
         # Check if the player has guessed all the letters in the word
         if check_win(word_to_guess, guessed_letters):
+            print_you_win()
             print(f"Congratulations, {player_name}! You've guessed the word: {word_to_guess}")
             break
         # Check if the player has exceeded the maximum number of incorrect guesses
