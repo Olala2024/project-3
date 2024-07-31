@@ -259,12 +259,10 @@ def main():
                 print(f"Congratulations, {player_name}! You've guessed\
                 the word: {word_to_guess}")
                 break
-            """ Check if the player has exceeded the maximum number of
-            incorrect guesses"""
+            # Check if the player has exceeded the maximum number of incorrect guesses
             elif check_loss(incorrect_guesses, max_incorrect):
                 print_game_over()
-                print(f"\nSorry, {player_name}, you've run out of guesses.\
-                The word was: {word_to_guess}")
+                print(f"\nSorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
                 break
 
             print(f"Remaining attempts: {max_incorrect\
@@ -279,7 +277,7 @@ def main():
             else:
                 print("Invalid input. Please enter 'yes' or 'no'.")
 
-        if play_again == 'no':
+        if play_again in ('no', 'n'):
             print("Thank you for playing Hangman! Goodbye!")
             break
 
