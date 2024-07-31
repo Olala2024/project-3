@@ -2,7 +2,7 @@ import random
 
 
 def print_logo():
-    # Display the game logo in ASCII art.
+    """ Display the game logo in ASCII art."""
     logo = r"""
  _   _
 | | | | __ _ _ __   __ _ _ __ ___   __ _ _ __
@@ -15,7 +15,7 @@ def print_logo():
 
 
 def get_player_name():
-    # Prompt the user for their name and validate the input.
+    """ Prompt the user for their name and validate the input."""
     while True:
         player_name = input("Enter your name: ").strip()
         if player_name.isalpha():
@@ -25,9 +25,10 @@ def get_player_name():
 
 
 def print_greeting(player_name):
-    # Print the greeting message and game introduction.
+    """ Print the greeting message and game introduction. """
     print(f"\nWelcome to Hangman, {player_name}!")
-    print("This classic word guessing game will test your vocabulary and spelling skills.")
+    print("This classic word guessing game will test"
+          "your vocabulary and spelling skills.")
     print("Try to guess the hidden word one letter at a time.")
     print("If you can guess the word before running out of guesses, you win!")
     print("Good luck and have fun!\n")
@@ -39,19 +40,22 @@ def print_rules():
     print("1. Choose a topic from the given list.")
     print("2. Try to guess the hidden word by entering one letter at a time.")
     print("3. You can make up to 6 incorrect guesses.")
-    print("4. If you guess all the letters correctly within the limit, you win!")
+    print("4. If you guess all the letters correctly within the limit,\
+    you win!")
     print("5. If you exceed 6 incorrect guesses, you lose.")
     print("6. Letters are case-insensitive (e.g., 'A' is the same as 'a').\n")
 
 
 def choose_topic(topics):
-    # Prompt the user to choose a topic and select a random word from that topic.
+    """Prompt the user to choose a topic and select a
+       random word from that topic."""
     while True:
         print("\nChoose a topic:")
         for i, topic in enumerate(topics.keys(), 1):
             print(f"{i}. {topic.capitalize()}")
 
-        user_input = input("\nEnter the number or name of your choice: ").strip().lower()
+        user_input = input("\nEnter the number or name of your choice:\
+        ").strip().lower()
 
         if user_input.isdigit():
             choice = int(user_input) - 1
@@ -59,16 +63,19 @@ def choose_topic(topics):
                 selected_topic = list(topics.keys())[choice]
                 return selected_topic, random.choice(topics[selected_topic])
             else:
-                print("\nInvalid choice. Please enter a number corresponding to a topic.")
+                print("\nInvalid choice. Please enter a number corresponding\
+                to a topic.")
         elif user_input in topics:
             selected_topic = user_input
             return selected_topic, random.choice(topics[selected_topic])
         else:
-            print("\nInvalid choice. Please enter the number or name of a valid topic.")
+            print("\nInvalid choice. Please enter the number or name of\
+            a valid topic.")
 
 
 def print_hangman(incorrect_guesses):
-    # Print the current stage of the hangman based on the number of incorrect guesses.
+    """ Print the current stage of the hangman based on the number
+    of incorrect guesses."""
     if (incorrect_guesses == 0):
         print("\n+---+")
         print("    |")
@@ -114,13 +121,15 @@ def print_hangman(incorrect_guesses):
 
 
 def display_current_state(word, guessed_letters):
-    # Display the current state of the word with guessed letters and underscores for unguessed letters.
+    """ Display the current state of the word with guessed letters and
+    underscores for unguessed letters."""
     display = [letter if letter in guessed_letters else '_' for letter in word]
     print("Current word: " + " ".join(display))
 
 
 def handle_guess(word, guessed_letters, incorrect_guesses):
-    # Handle the player's guess, update guessed letters and incorrect guesses, and return them.
+    """ Handle the player's guess, update guessed letters and incorrect
+    guesses, and return them."""
     while True:
         guess = input("\nGuess a letter: ").lower()
         if len(guess) != 1 or not guess.isalpha():
@@ -138,17 +147,18 @@ def handle_guess(word, guessed_letters, incorrect_guesses):
 
 
 def check_win(word, guessed_letters):
-    # Check if the player has won by guessing all letters in the word.
+    """ Check if the player has won by guessing all letters in the word."""
     return all(letter in guessed_letters for letter in word)
 
 
 def check_loss(incorrect_guesses, max_incorrect):
-    # Check if the player has lost by exceeding the maximum number of incorrect guesses.
+    """ Check if the player has lost by exceeding the maximum number of
+    incorrect guesses."""
     return len(incorrect_guesses) >= max_incorrect
 
 
 def print_you_win():
-    # Display 'You Win!' in ASCII art to congratulate the player.
+    """ Display 'You Win!' in ASCII art to congratulate the player."""
     message = r"""
 __   __                     _       _
 \ \ / /__  _   _  __      _(_)_ __ | |
@@ -160,7 +170,8 @@ __   __                     _       _
 
 
 def print_game_over():
-    # Display 'Game over!' in ASCII art to inform the player of the game outcome.
+    """ Display 'Game over!' in ASCII art to inform the player
+    of the game outcome."""
     message = r"""
   ____                                            _
  / ___| __ _ _ __ ___   ___    _____   _____ _ __| |
@@ -208,14 +219,15 @@ TOPICS = {
 
 
 def main():
-    # Main function to run the Hangman game.
+    """ Main function to run the Hangman game."""
     while True:
         print_logo()
         player_name = get_player_name()
         print_greeting(player_name)
         print_rules()
         selected_topic, word_to_guess = choose_topic(TOPICS)
-        print(f"\nPerfect! You've chosen the topic: {selected_topic}. Let`s start!")
+        print(f"\nPerfect! You've chosen the topic: {selected_topic}.\
+        Let`s start!")
 
         # Display initial state of the word to guess and the hangman
         guessed_letters = []
@@ -226,13 +238,15 @@ def main():
         max_incorrect = 6
         incorrect_guesses = []
 
-        # Enter an infinite loop for handling guesses until the game is won or lost
+        """ Enter an infinite loop for handling guesses until the game is won
+        or lost"""
         while True:
             # Update guessed and incorrect letters based on the player's input
             guessed_letters, incorrect_guesses = handle_guess(
                 word_to_guess, guessed_letters, incorrect_guesses
             )
-            # Display the current state of the word with guessed letters and underscores
+            """ Display the current state of the word with guessed letters and
+            underscores"""
             display_current_state(word_to_guess, guessed_letters)
 
             # Display the incorrect guesses
@@ -242,19 +256,24 @@ def main():
             # Check if the player has guessed all the letters in the word
             if check_win(word_to_guess, guessed_letters):
                 print_you_win()
-                print(f"Congratulations, {player_name}! You've guessed the word: {word_to_guess}")
+                print(f"Congratulations, {player_name}! You've guessed\
+                the word: {word_to_guess}")
                 break
-            # Check if the player has exceeded the maximum number of incorrect guesses
+            """ Check if the player has exceeded the maximum number of
+            incorrect guesses"""
             elif check_loss(incorrect_guesses, max_incorrect):
                 print_game_over()
-                print(f"\nSorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
+                print(f"\nSorry, {player_name}, you've run out of guesses.\
+                The word was: {word_to_guess}")
                 break
 
-            print(f"Remaining attempts: {max_incorrect - len(incorrect_guesses)}")
+            print(f"Remaining attempts: {max_incorrect\
+            - len(incorrect_guesses)}")
 
         # Ask the player if they want to play again or exit
         while True:
-            play_again = input("Do you want to play again? (yes/no): ").strip().lower()
+            play_again = input("Do you want to play again?\
+            (yes/no): ").strip().lower()
             if play_again in ('yes', 'y', 'no', 'n'):
                 break
             else:
