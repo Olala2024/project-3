@@ -255,7 +255,7 @@ def main():
         # Ask the player if they want to play again or exit
         while True:
             play_again = input("Do you want to play again? (yes/no): ").strip().lower()
-            if play_again in ('yes', 'no'):
+            if play_again in ('yes', 'y', 'no', 'n'):
                 break
             else:
                 print("Invalid input. Please enter 'yes' or 'no'.")
