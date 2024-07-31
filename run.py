@@ -1,15 +1,14 @@
 import random
 
 def print_logo():
+    """Display the game logo in ASCII art."""
     logo = r"""
- _    _                                             
-| |  | |                                            
-| |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __      
-|  __  |/ _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\     
-| |  | | (_| | | | | (_| | | | | | | (_| | | | |    
-|_|  |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|    
-                     __/ |                          
-                    |___/                           
+ _   _                                         
+| | | | __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| |_| |/ _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+|  _  | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                   |___/                       
     """
     print(logo)
 
@@ -115,7 +114,7 @@ def display_current_state(word, guessed_letters):
 def handle_guess(word, guessed_letters, incorrect_guesses):
     """Handle the player's guess, update guessed letters and incorrect guesses, and return them."""
     while True:
-        guess = input("Guess a letter: ").lower()
+        guess = input("\nGuess a letter: ").lower()
         if len(guess) != 1 or not guess.isalpha():
             print("Invalid input. Please enter a single letter.")
         elif guess in guessed_letters or guess in incorrect_guesses:
