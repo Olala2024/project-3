@@ -1,7 +1,7 @@
 import random
 
 def print_logo():
-    logo = """
+    logo = r"""
  _    _                                             
 | |  | |                                            
 | |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __      
@@ -139,7 +139,7 @@ def check_loss(incorrect_guesses, max_incorrect):
 
 def print_you_win():
     """Display 'You Win!' in ASCII art to congratulate the player."""
-    message = """
+    message = r"""
 __   __                     _       _ 
 \ \ / /__  _   _  __      _(_)_ __ | |
  \ V / _ \| | | | \ \ /\ / / | '_ \| |
@@ -150,7 +150,7 @@ __   __                     _       _
 
 def print_game_over():
     """Display 'Game over!' in ASCII art to inform the player of the game outcome."""
-    message = """
+    message = r"""
   ____                                            _ 
  / ___| __ _ _ __ ___   ___    _____   _____ _ __| |
 | |  _ / _` | '_ ` _ \ / _ \  / _ \ \ / / _ \ '__| |
