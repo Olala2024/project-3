@@ -17,9 +17,9 @@ def print_logo():
 def get_player_name():
     """ Prompt the user for their name and validate the input."""
     while True:
-        player_name = input("\nEnter your name (up to 45 characters): ").strip()
+        player_name = input("\nEnter your name (up to 45 letters): ").strip()
         if len(player_name) > 45:
-            print("\nName too long. Please enter a name with 45 characters or fewer.")
+            print("\nName too long. Please enter a name less than 45 letters.")
         elif not player_name.isalpha():
             print("\nInvalid input. Please enter a valid name (letters only).")
         else:
@@ -56,8 +56,8 @@ def choose_topic(topics):
         for i, topic in enumerate(topics.keys(), 1):
             print(f"{i}. {topic.capitalize()}")
 
-        user_input = input("\nEnter the number or name of your choice: "\
-            ).strip().lower()
+        user_input = input("\nEnter the number or name of your choice: \
+        ").strip().lower()
 
         if user_input.isdigit():
             choice = int(user_input) - 1
@@ -228,8 +228,8 @@ def main():
         print_greeting(player_name)
         print_rules()
         selected_topic, word_to_guess = choose_topic(TOPICS)
-        print(f"\nPerfect! You've chosen the topic: {selected_topic}.\
-             Let`s start!")
+        print(f"\nPerfect! You've chosen the topic: {selected_topic}.")
+        print("\nLet`s start!")
 
         # Display initial state of the word to guess and the hangman
         guessed_letters = []
@@ -258,13 +258,14 @@ def main():
             # Check if the player has guessed all the letters in the word
             if check_win(word_to_guess, guessed_letters):
                 print_you_win()
-                print(f"Congratulations, {player_name}! You've guessed\
-                the word: {word_to_guess}")
+                print(f"Congratulations, {player_name}!")
+                print(f"\nYou've guessed the word: {word_to_guess}")
                 break
-            # Check if the player has exceeded the maximum number of incorrect guesses
+            # Check if player has exceeded the max number of incorrect guesses
             elif check_loss(incorrect_guesses, max_incorrect):
                 print_game_over()
-                print(f"\nSorry, {player_name}, you've run out of guesses. The word was: {word_to_guess}")
+                print(f"\nSorry, {player_name}, you've run out of guesses.")
+                print(f"\nThe word was: {word_to_guess}")
                 break
 
             print(f"Remaining attempts: {max_incorrect\
