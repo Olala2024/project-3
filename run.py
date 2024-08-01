@@ -17,11 +17,13 @@ def print_logo():
 def get_player_name():
     """ Prompt the user for their name and validate the input."""
     while True:
-        player_name = input("Enter your name: ").strip()
-        if player_name.isalpha():
-            return player_name
+        player_name = input("\nEnter your name (up to 45 characters): ").strip()
+        if len(player_name) > 45:
+            print("\nName too long. Please enter a name with 45 characters or fewer.")
+        elif not player_name.isalpha():
+            print("\nInvalid input. Please enter a valid name (letters only).")
         else:
-            print("Invalid input. Please enter a valid name (letters only).")
+            return player_name
 
 
 def print_greeting(player_name):
