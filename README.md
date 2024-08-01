@@ -72,4 +72,50 @@ The `get_player_name()` function prompts the user to enter their name and ensure
     - The function validates the input and selects a random word from the chosen topic.
     - It provides feedback if the input is invalid, prompting the player to make a correct selection.
 
-    
+    ![incorrect input](assets/images/wronginput.png)
+
+#### Game Play
+
+1. **Display Initial State**:
+   Once a valid topic is selected and a word is chosen, the initial state of the game is displayed:
+   - The `print_hangman(0)` function is called to show the initial hangman state with no incorrect guesses.
+   - The `display_current_state(word, guessed_letters)` function displays the word to guess with underscores representing each letter. As no letters have been guessed yet, all characters are shown as underscores.
+
+   ![start game](assets/images/start.png)
+
+2. **Handling Guesses**:
+   The game enters an infinite loop where the player makes guesses until they either win or lose:
+   - The `handle_guess(word, guessed_letters, incorrect_guesses)` function prompts the player to guess a letter. This function validates the input to ensure it is a single alphabetic character and checks if the letter has already been guessed.
+   - If the guess is correct, the letter is added to `guessed_letters`. If incorrect, it is added to `incorrect_guesses`, and the hangman state is updated accordingly.
+
+  ![guess validation](assets/images/guessval.png) 
+
+3. **Updating and Displaying State**:
+   After each guess, the following updates occur:
+   - The `display_current_state(word, guessed_letters)` function updates the display to show correctly guessed letters in their positions while keeping underscores for the remaining hidden letters.
+   - If there are incorrect guesses, these are displayed to keep the player informed.
+
+   ![guess letter](assets/images/guess.png)
+
+4. **Checking Win/Loss Conditions**:
+   The game checks if the player has won or lost:
+   - The `check_win(word, guessed_letters)` function checks if all letters in the word have been guessed correctly. If so, the player wins, and a congratulatory message is displayed using `print_you_win()`.
+
+   ![win](assets/images/win.png)
+
+   - The `check_loss(incorrect_guesses, max_incorrect)` function checks if the player has exceeded the maximum allowed incorrect guesses. If so, the game ends with a loss, and the game over message is displayed using `print_game_over()`.
+
+   ![lose](assets/images/lose.png)
+
+5. **Remaining Attempts**:
+   The number of remaining attempts is displayed to keep the player informed about how many guesses they have left.
+
+   ![remain](assets/images/remain.png)
+
+6. **Play Again Prompt**:
+   After the game concludes, whether by win or loss, the player is prompted to decide if they want to play again:
+   - The program asks the player, "Do you want to play again? (yes/no):".
+   - The input is validated to ensure it is either 'yes', 'y', 'no', or 'n'.
+   - If the player chooses 'yes' or 'y', the game restarts from the beginning, allowing the player to select a new topic and start a new game.
+   - If the player chooses 'no' or 'n', a farewell message is displayed, thanking the player for playing, and the game exits.
+
