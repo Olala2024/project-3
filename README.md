@@ -16,3 +16,11 @@
 10. [Acknowledgements](#acknowledgements)
 
 ## Project Description
+
+This project is a text-based Hangman game that allows users to guess letters to uncover a hidden word. The game includes multiple topics, each with a list of words, providing a fun and educational experience.
+
+## UI
+
+![Flowchart](assets/images/flowchart.png)
+
+## Features
