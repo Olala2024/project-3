@@ -56,8 +56,8 @@ def choose_topic(topics):
         for i, topic in enumerate(topics.keys(), 1):
             print(f"{i}. {topic.capitalize()}")
 
-        user_input = input("\nEnter the number or name of your choice:\
-        ").strip().lower()
+        user_input = input("\nEnter the number or name of your choice: "\
+            ).strip().lower()
 
         if user_input.isdigit():
             choice = int(user_input) - 1
@@ -229,7 +229,7 @@ def main():
         print_rules()
         selected_topic, word_to_guess = choose_topic(TOPICS)
         print(f"\nPerfect! You've chosen the topic: {selected_topic}.\
-        Let`s start!")
+             Let`s start!")
 
         # Display initial state of the word to guess and the hangman
         guessed_letters = []
@@ -272,15 +272,15 @@ def main():
 
         # Ask the player if they want to play again or exit
         while True:
-            play_again = input("Do you want to play again?\
-            (yes/no): ").strip().lower()
+            play_again = input("\nDo you want to play again? (yes/no): \
+                ").strip().lower()
             if play_again in ('yes', 'y', 'no', 'n'):
                 break
             else:
-                print("Invalid input. Please enter 'yes' or 'no'.")
+                print("\nInvalid input. Please enter 'yes' or 'no'.")
 
         if play_again in ('no', 'n'):
-            print("Thank you for playing Hangman! Goodbye!")
+            print("\nThank you for playing Hangman! Goodbye!")
             break
 
 
