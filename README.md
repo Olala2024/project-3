@@ -119,3 +119,19 @@ The `get_player_name()` function prompts the user to enter their name and ensure
    - If the player chooses 'yes' or 'y', the game restarts from the beginning, allowing the player to select a new topic and start a new game.
    - If the player chooses 'no' or 'n', a farewell message is displayed, thanking the player for playing, and the game exits.
 
+   ![end](assets/images/end.png)
+
+## Features Left to Implement
+
+1. **Hint System**:
+   - Add a hint system that provides players with a clue about the word if they are struggling. This could be limited to a certain number of hints per game to maintain the challenge.
+
+2. **Difficulty Levels**:
+   - Introduce different difficulty levels (e.g., easy, medium, hard) that affect the length and complexity of the words chosen, as well as the number of incorrect guesses allowed.
+
+3. **Score Tracking**:
+   - Implement a scoring system to track players' performance across multiple games. This could include tracking the number of wins and losses, as well as a points system based on the number of correct guesses and remaining attempts.
+
+4. **Leaderboard**
+   - Create a leaderboard to display the top players based on their scores. This could be a local leaderboard or an online one to allow players to compete globally.
+
