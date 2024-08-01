@@ -57,7 +57,7 @@ def choose_topic(topics):
             print(f"{i}. {topic.capitalize()}")
 
         user_input = input("\nEnter the number or name of your choice: \
-        ").strip().lower()
+").strip().lower()
 
         if user_input.isdigit():
             choice = int(user_input) - 1
@@ -65,14 +65,14 @@ def choose_topic(topics):
                 selected_topic = list(topics.keys())[choice]
                 return selected_topic, random.choice(topics[selected_topic])
             else:
-                print("\nInvalid choice. Please enter a number corresponding\
-                to a topic.")
+                print("\nInvalid choice. Please enter a number corresponding \
+to a topic.")
         elif user_input in topics:
             selected_topic = user_input
             return selected_topic, random.choice(topics[selected_topic])
         else:
-            print("\nInvalid choice. Please enter the number or name of\
-            a valid topic.")
+            print("\nInvalid choice. Please enter the number or name of \
+a valid topic.")
 
 
 def print_hangman(incorrect_guesses):
