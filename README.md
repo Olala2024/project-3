@@ -135,3 +135,23 @@ The `get_player_name()` function prompts the user to enter their name and ensure
 4. **Leaderboard**
    - Create a leaderboard to display the top players based on their scores. This could be a local leaderboard or an online one to allow players to compete globally.
 
+
+## Technology Used
+
+1. **Python**:
+   - The primary programming language used for developing the Hangman game.
+
+2. **Heroku**:
+   - A cloud platform used for deploying the application. Heroku provides an easy way to deploy, manage, and scale applications.
+
+3. **GitHub**:
+   - The version control system used for tracking changes, collaborating, and managing the project's source code. GitHub also serves as the repository for the project's documentation and issue tracking.
+
+4. **Gitpod**:
+   - The integrated development environment (IDE) used for writing and debugging the Python code. Gitpod is chosen for its convenience and integration with GitHub, providing a seamless development experience.
+
+5. **Markdown**:
+   - Used for writing the project's documentation, including the README file. Markdown allows for easy formatting and readability of text files.
+
+6. **PEP8CI**:
+   - A tool used for ensuring that the code adheres to the PEP8 style guide. PEP8CI helps maintain code quality and consistency by identifying and suggesting corrections for style violations.
