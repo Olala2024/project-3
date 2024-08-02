@@ -155,3 +155,30 @@ The `get_player_name()` function prompts the user to enter their name and ensure
 
 6. **PEP8CI**:
    - A tool used for ensuring that the code adheres to the PEP8 style guide. PEP8CI helps maintain code quality and consistency by identifying and suggesting corrections for style violations.
+
+## Testing
+
+Testing is an integral part of ensuring that the Hangman game functions correctly and provides a smooth user experience. The following section details the testing procedures, results, and any issues encountered during the development process. I conducted manual testing with the help of friends to cover various scenarios.
+
+### Manual Testing
+
+| **Feature**       | **Test Description**                     | **Input**                                      | **Expected Result**                                                                           | **Actual Result** | **Pass/Fail** |
+|-------------------|------------------------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------|-------------------|---------------|
+| Welcome Screen    | Enter a valid name                       | `Alice`                                        | The game should welcome Alice and proceed to the next step.                                   | The game welcomed Alice and proceeded to the next step. | Pass          |
+|                   | Enter an invalid name (numeric/special)  | `Alice123`                                     | The game should display an error message and prompt the user to enter a valid name.           | The game displayed an error message and prompted for a valid name. | Pass          |
+|                   | Enter a name longer than 45 characters   | `ThisNameIsWayTooLongToBeAcceptedByTheGame`    | The game should display an error message and prompt the user to enter a shorter name.         | The game displayed an error message and prompted for a shorter name. | Pass          |
+| Game Flow         | Choose a valid topic by number           | `1`                                            | The game should select the first topic and display a word from that topic.                    | The game selected the first topic and displayed a word. | Pass          |
+|                   | Choose a valid topic by name             | `chemistry`                                    | The game should select the chemistry topic and display a word from that topic.                | The game selected the chemistry topic and displayed a word. | Pass          |
+|                   | Choose an invalid topic                  | `invalidtopic`                                 | The game should display an error message and prompt the user to choose a valid topic.         | The game displayed an error message and prompted for a valid topic. | Pass          |
+| Guessing Letters  | Guess a correct letter                   | A correct letter in the word                   | The game should reveal the letter in the word.                                                | The game revealed the letter in the word. | Pass          |
+|                   | Guess an incorrect letter                | A letter not in the word                       | The game should increase the incorrect guess count and display the hangman progression.       | The game increased the incorrect guess count and displayed the hangman progression. | Pass          |
+|                   | Guess a letter that has already been guessed | A previously guessed letter                 | The game should display a message indicating that the letter has already been guessed.        | The game displayed a message indicating the letter had been guessed. | Pass          |
+| Winning and Losing | Correctly guess all letters in the word | All correct letters                            | The game should display a "You Win!" message.                                                 | The game displayed a "You Win!" message. | Pass          |
+|                   | Reach the maximum number of incorrect guesses | 6 incorrect letters                         | The game should display a "Game Over!" message and reveal the word.                           | The game displayed a "Game Over!" message and revealed the word. | Pass          |
+| Playing Again     | Choose to play again                     | `yes`                                          | The game should restart and prompt the user for their name.                                   | The game restarted and prompted for a name. | Pass          |
+|                   | Choose not to play again                 | `no`                                           | The game should display a goodbye message and exit.                                           | The game displayed a goodbye message and exited. | Pass          |
+
+### Validation Testing
+
+- **PEP8 Compliance**:
+  - I tested the code using PEP8CI to ensure compliance with the PEP8 style guide. Initially, I encountered some errors and warnings, but I corrected them to meet the PEP8 standards. The final results showed no significant style violations, ensuring that the code is clean and follows Python's best practices.
