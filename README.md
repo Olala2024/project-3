@@ -182,3 +182,58 @@ Testing is an integral part of ensuring that the Hangman game functions correctl
 
 - **PEP8 Compliance**:
   - I tested the code using PEP8CI to ensure compliance with the PEP8 style guide. Initially, I encountered some errors and warnings, but I corrected them to meet the PEP8 standards. The final results showed no significant style violations, ensuring that the code is clean and follows Python's best practices.
+
+## Bugs
+
+**Known Issues:**
+- No known bugs have been identified at this time.
+
+**Reporting Bugs:**
+- If you encounter any bugs or issues, please report them by opening an issue on the [GitHub Issues page](https://github.com/Olala2024/project-3/issues). Include a detailed description of the problem, steps to reproduce it, and any error messages you receive.
+
+## Deployment
+
+**Heroku Deployment:**
+
+To deploy this project on Heroku, I followed these steps:
+
+1. **Log In or Create an Account:**
+   - I created a new account to [Heroku](https://www.heroku.com/home).
+
+2. **Create a New App:**
+   - On the Heroku dashboard, I clicked the **New** button in the top right corner and selected **Create New App** from the drop-down menu.
+
+3. **App Details:**
+   - I entered a unique name for my app.
+   - I chose the appropriate region from the available options.
+
+4. **Create the App:**
+   - I clicked on the **Create App** button.
+
+5. **Configure Environment Variables:**
+   - I navigated to the project’s **Deploy** tab.
+   - I switched to the **Settings** tab and scrolled down to **Config Vars**.
+   - I clicked **Reveal Config Vars**.
+   - I entered `PORT` into the **Key** box and `8000` into the **Value** box, then clicked the **Add** button.
+   - I clicked **Reveal Config Vars** again.
+   
+6. **Add Buildpacks:**
+   - I scrolled down to the **Buildpacks** section.
+   - I clicked **Add Buildpack**, selected **Python** from the list, and clicked **Save Changes**.
+   - I repeated the process to add **Node.js**.
+   - Note: I made sure the buildpacks were in the correct order. If needed, I clicked and dragged them to reorder.
+
+7. **Deploy the App:**
+   - I scrolled to the top of the page and switched to the **Deploy** tab.
+   - I selected **GitHub** as the deployment method.
+   - I confirmed the connection to GitHub when prompted.
+   - I searched for the repository name and clicked **Connect**.
+
+8. **Deploy the Code:**
+   - I scrolled to the bottom of the deploy page.
+   - I chose my preferred deployment type.
+   - I clicked **Enable Automatic Deploys** to automatically deploy updates when I push changes to GitHub.
+
+By following these steps, I successfully deployed my project to Heroku and set it up for future updates. You can find my deployed project [here](https://project-3-hangman-beda00e72a3a.herokuapp.com/).
+
+
