@@ -4,7 +4,7 @@
 
 ## Table of contents
 
-1. [UI](#ui)
+1. [UI/UX](#uiux)
 2. [Features](#features)
 3. [Features Left to Implement](#left)
 4. [Technology Used](#tech)
@@ -19,11 +19,11 @@
 
 This project is a text-based Hangman game that allows users to guess letters to uncover a hidden word. The game includes multiple topics, each with a list of words, providing a fun and educational experience.
 
-## UI
+## UI/UX <a id="uiux"></a>
 
 ![Flowchart](assets/images/flowchart.png)
 
-## Features
+## Features <a id="features"></a>
 
 #### Welcome Screen
 The user is greeted with a welcome screen featuring the game's logo. They are prompted to enter their name and confirm their choice.
@@ -121,7 +121,7 @@ The `get_player_name()` function prompts the user to enter their name and ensure
 
    ![end](assets/images/end.png)
 
-## Features Left to Implement
+## Features Left to Implement <a id="left"></a>
 
 1. **Hint System**:
    - Add a hint system that provides players with a clue about the word if they are struggling. This could be limited to a certain number of hints per game to maintain the challenge.
@@ -136,7 +136,7 @@ The `get_player_name()` function prompts the user to enter their name and ensure
    - Create a leaderboard to display the top players based on their scores. This could be a local leaderboard or an online one to allow players to compete globally.
 
 
-## Technology Used
+## Technology Used <a id="tech"></a>
 
 1. **Python**:
    - The primary programming language used for developing the Hangman game.
@@ -156,7 +156,7 @@ The `get_player_name()` function prompts the user to enter their name and ensure
 6. **PEP8CI**:
    - A tool used for ensuring that the code adheres to the PEP8 style guide. PEP8CI helps maintain code quality and consistency by identifying and suggesting corrections for style violations.
 
-## Testing
+## Testing <a id="testing"></a>
 
 Testing is an integral part of ensuring that the Hangman game functions correctly and provides a smooth user experience. The following section details the testing procedures, results, and any issues encountered during the development process. I conducted manual testing with the help of friends to cover various scenarios.
 
@@ -183,7 +183,7 @@ Testing is an integral part of ensuring that the Hangman game functions correctl
 - **PEP8 Compliance**:
   - I tested the code using PEP8CI to ensure compliance with the PEP8 style guide. Initially, I encountered some errors and warnings, but I corrected them to meet the PEP8 standards. The final results showed no significant style violations, ensuring that the code is clean and follows Python's best practices.
 
-## Bugs
+## Bugs <a id="bugs"></a>
 
 **Known Issues:**
 - No known bugs have been identified at this time.
@@ -191,14 +191,14 @@ Testing is an integral part of ensuring that the Hangman game functions correctl
 **Reporting Bugs:**
 - If you encounter any bugs or issues, please report them by opening an issue on the [GitHub Issues page](https://github.com/Olala2024/project-3/issues). Include a detailed description of the problem, steps to reproduce it, and any error messages you receive.
 
-## Deployment
+## Deployment <a id="deployment"></a>
 
 **Heroku Deployment:**
 
 To deploy this project on Heroku, I followed these steps:
 
 1. **Log In or Create an Account:**
-   - I created a new account to [Heroku](https://www.heroku.com/home).
+   I created a new account on [Heroku](https://www.heroku.com/home).
 
 2. **Create a New App:**
    - On the Heroku dashboard, I clicked the **New** button in the top right corner and selected **Create New App** from the drop-down menu.
@@ -235,5 +235,36 @@ To deploy this project on Heroku, I followed these steps:
    - I clicked **Enable Automatic Deploys** to automatically deploy updates when I push changes to GitHub.
 
 By following these steps, I successfully deployed my project to Heroku and set it up for future updates. You can find my deployed project [here](https://project-3-hangman-beda00e72a3a.herokuapp.com/).
+
+## Credits <a id="credits"></a>
+
+
+- [Lucidchart](https://www.lucidchart.com/pages/) - I used to create flowcharts.
+- [ASCII Art Generator](https://www.asciiart.eu/) - I used to generate ASCII Art
+- [Amiresponsive](https://ui.dev/amiresponsive) - I used to generate a mockup in different screen sizes.
+- Python's built-in libraries were used for random number generation and input handling.
+- I found the YouTube channel [Tech With Tim](https://www.youtube.com/@TechWithTim) to be extremely helpful during development.
+- I used other student examples as a reference to understand how to build my own game and what is expected for the app and readme, [Hangman](https://github.com/Zest-studi-o/P03-Hangman)
+- I also used [Code Institute template](https://github.com/Code-Institute-Org/p3-template) to run the game in the terminal using Heroku.
+- [Code Institute](https://codeinstitute.net/de/) - This project was created in alignment with the course content and within the scope of Project 3. The knowledge gained from this course significantly contributed to my understanding and development of the project.
+
+## Content <a id="content"></a>
+
+**Topics Included:**
+
+- Chemistry
+- Geography
+- Astronomy
+- Physics
+- Mathematics
+
+**Future Updates:**
+
+Additional topics and features may be included in future updates.
+
+## Acknowledgements <a id="acknowledgements"></a>
+
+- I extend heartfelt gratitude to my mentor, Alan Bushell, whose unwavering support, guidance, and invaluable advice have been instrumental in leading me through this project. His expertise and encouragement have profoundly contributed to its success.
+
 
 
